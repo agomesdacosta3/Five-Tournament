@@ -1,0 +1,11 @@
+.dart_tool/
+.idea/
+.packages
+build/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/engine/
+ios/Flutter/app.framework
+ios/ServiceDefinitions.json
+.flutter-plugins
+.flutter-plugins-dependencies
