@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/equipe.dart';
+import 'matches_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -9,33 +9,34 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Tournoi Football 5'),
       ),
-      body: Center(
-        child: Text('Bienvenue au tournoi !'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: 20), // Espacement
+          Text(
+            'Bienvenue au Tournoi',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/poules');
+            },
+            child: Text('Voir les Poules'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MatchesScreen()),
+              );
+            },
+            child: Text('Voir les Matchs'),
+          ),
+        ],
       ),
     );
   }
-}
-
-final equipes = [
-  Equipe(nom: 'Équipe A', capitaine: 'Alice', joueurs: ['Bob', 'Charlie']),
-  Equipe(nom: 'Équipe B', capitaine: 'David', joueurs: ['Eve', 'Frank']),
-];
-
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      title: Text('Tournoi Football 5'),
-    ),
-    body: ListView.builder(
-      itemCount: equipes.length,
-      itemBuilder: (context, index) {
-        final equipe = equipes[index];
-        return ListTile(
-          title: Text(equipe.nom),
-          subtitle: Text('Capitaine : ${equipe.capitaine}'),
-        );
-      },
-    ),
-  );
 }

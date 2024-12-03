@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'screens/home_screen.dart';
+import 'screens/poules_screen.dart';
 
 void main() {
   runApp(TournoiApp());
@@ -15,7 +15,11 @@ class TournoiApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/poules': (context) => PoulesScreen(),
+      },
     );
   }
 }
